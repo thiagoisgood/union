@@ -458,7 +458,7 @@ export function Squad() {
             <h2>2025 赛季注册名单</h2>
             <p className="section-note">
               34 人注册名单据中足联 2025 赛季球员注册名单，号码、位置、国籍、出生日期与身高体重
-              以注册资料为准；出场、进球、助攻为 2025 中甲联赛官方统计。未公开项留空，不作推测。
+              以注册资料为准；出场、首发、出场分钟、进球、助攻为 2025 中甲联赛官方统计。未公开项留空，不作推测。
             </p>
           </div>
 
@@ -482,6 +482,12 @@ export function Squad() {
                   )}
                   <strong>{p.name}</strong>
                   {p.captain && <span className="chip chip-captain">队长</span>}
+                  {p.appearances > 0 && <span className="chip">{p.appearances} 场</span>}
+                  {p.minutes > 0 && (
+                    <span className="chip">
+                      {p.starts} 首发 · {p.minutes} 分钟
+                    </span>
+                  )}
                   {p.goals > 0 && <span className="chip">{p.goals} 球</span>}
                   {p.assists > 0 && <span className="chip chip-assist">{p.assists} 助攻</span>}
                 </span>
@@ -496,7 +502,8 @@ export function Squad() {
           </div>
 
           <p className="data-caveat">
-            出场、进球、助攻均为 2025 中甲联赛官方统计，34 人合计 466 场 48 球 31 助攻，
+            出场、首发、出场分钟、进球、助攻均为 2025 中甲联赛官方统计，34 人合计 466 场、
+            330 首发、29678 分钟、48 球、31 助攻，
             与球队赛季 48 个联赛进球完全对应；足协杯与西部杯进球不计入，此前按各项赛事汇总的
             数字保留在备注中。开季 29 人公示名单中的号码与位置已按注册资料复核，夏窗加盟的
             塞尔马尼、魏志伟、马希伟、李小一与钟玮宏一并列入。
@@ -524,7 +531,7 @@ export function Squad() {
               <span>出生日期</span>
               <span>籍贯</span>
               <span>身高 / 体重</span>
-              <span>出场 / 进球 / 助攻</span>
+              <span>出场 / 首发 / 进球 / 助攻</span>
             </div>
             {archive2024.map((p) => (
               <div className="roster-row roster-row-2024" key={`${p.number}-${p.name}`}>
@@ -549,15 +556,19 @@ export function Squad() {
                   </span>
                 </span>
                 <span className="roster-note">
-                  {p.appearances} 场 · {p.goals} 球 · {p.assists} 助攻
+                  {p.appearances} 场
+                  {p.minutes > 0 ? `（${p.starts} 首发 / ${p.minutes} 分钟）` : ""} · {p.goals} 球 ·{" "}
+                  {p.assists} 助攻
                 </span>
               </div>
             ))}
           </div>
 
           <p className="data-caveat">
-            出场、进球与助攻为 2024 中乙联赛官方统计，不含足协杯；张裕碹、白茗宇、李天乐
-            当季联赛无出场记录。名单含夏窗补报球员，与赛季末在册人数可能不同。31 人全部为中国籍；
+            出场、首发、出场分钟、进球与助攻为 2024 中乙联赛官方统计，不含足协杯；30 人合计
+            440 场、302 首发、27138 分钟。白茗宇、李天乐当季联赛无出场记录；张裕碹上半程在队、
+            7 月租借广西恒宸，官方数据将其整季统计记在广西恒宸名下，陕西联合期间出场数无公开
+            逐场来源，仅记可查证的 1 粒进球。名单含夏窗补报球员，与赛季末在册人数可能不同。31 人全部为中国籍；
             籍贯按球员终身属性登记，2024 年新援中无公开来源者留空，曾效力 2023 赛季者沿用当季名单。
             当季无公开肖像的 16 名球员以位置标记代替头像。
           </p>

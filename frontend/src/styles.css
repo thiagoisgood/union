@@ -1591,7 +1591,8 @@ p {
 .roster-player {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   min-width: 0;
   color: var(--text);
 }
