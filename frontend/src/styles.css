@@ -2370,18 +2370,26 @@ p {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 }
 
 .source-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
 }
 
 .source-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  min-width: 0;
+}
+
+.source-card .chip {
+  white-space: normal;
 }
 
 .chip-ghost {
@@ -2407,12 +2415,14 @@ p {
   color: var(--muted);
   font-size: 13.5px;
   flex: 1;
+  overflow-wrap: anywhere;
 }
 
 .source-card code {
   font-size: 11px;
   color: rgba(157, 154, 146, 0.6);
   letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
 }
 
 /* ---------- coming soon ---------- */
