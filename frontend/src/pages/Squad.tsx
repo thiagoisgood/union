@@ -431,8 +431,8 @@ export function Squad() {
           <p className="kicker">TRANSFERS</p>
           <h2>转会记录</h2>
           <p className="section-note">
-            收录 2024—2026 赛季有公开数据可核实的转入与转出。日期、来源/去向俱乐部与德转同步身价
-            来自直播吧球队资料，并与俱乐部官宣报道、当季一线队名单交叉核对。
+            收录 2024—2026 赛季有公开数据可核实的转入与转出。转入来自直播吧球队资料与俱乐部官宣；
+            2024—2026 年冬窗及赛季中的转出据球迷宝球员转会记录补录，并与中足联当季注册名单逐一比对。
           </p>
         </div>
 
@@ -452,7 +452,11 @@ export function Squad() {
                   <span className="chip">{t.kind}</span>
                 </div>
                 <p className="transfer-club">
-                  {t.direction === "in" ? "来自" : "转至"} {t.club}
+                  {t.direction === "in"
+                    ? `来自 ${t.club}`
+                    : t.club === "—"
+                      ? `无新东家 · ${t.kind}`
+                      : `转至 ${t.club}`}
                   {t.fee ? ` · ${t.fee}` : ""}
                 </p>
                 <p className="transfer-note">{t.note}</p>
@@ -462,8 +466,9 @@ export function Squad() {
         </div>
         <p className="data-caveat">
           转会费为德转同步的估值口径，标「约」者并非俱乐部公布数字；未公开费用的自由转会与租借
-          以「—」显示，未作估算。2026 年夏窗 4 笔转出据四家新东家的赛季名单补录，2023—2025
-          赛季的转出记录仍不完整，页面暂不作补写。
+          以「—」显示，未作估算。2024—2026 年共补录 45 笔转出，其中 33 笔在与中足联当季注册名单
+          比对中找到本人；去向为中冠球队、或球迷宝记录与注册名单冲突的条目未入库。退役与合同到期
+          无去向俱乐部，去向栏记「—」；转入记录仍只收录 2025 赛季以来的公开数据。
         </p>
       </section>
 
