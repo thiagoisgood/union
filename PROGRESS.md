@@ -1444,6 +1444,7 @@
 
 - 江文豪备注由「加盟」改为「从北京国安租借加盟」，与俱乐部官宣及多家报道一致
 - 新增 6 条百科来源（`baike-wenjunjie`、`baike-jiangwenhao`、`baike-xiahezhati`、`baike-yangshuo`、`baike-qianruofan`、`baike-wangziduo`），来源总数 113 条
+- 补回被覆盖的「阶段七十 弗拉泽头像」开发进度记录，`SEED_VERSION` 再提升至 98 重新播种
 - `SEED_VERSION` 96 → 97
 
 渠道：搜狗微信与 360 本轮均触发验证码；头条搜索短查询可用、多词长句返回 0 条；百度网页版经无头 Chromium 恢复访问，百科词条直接在浏览器中读取（curl 直连返回 403）。
