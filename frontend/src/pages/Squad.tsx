@@ -235,6 +235,7 @@ export function Squad() {
             出场、进球与助攻均取中足联 2026 中甲联赛官方统计（30 轮，不含足协杯），
             与战绩页逐场比分相互印证；足协杯进球单列在球员备注与战绩页。
             球员进球合计 56 球，与赛季 57 球的差额为对手乌龙球；出场时间与跑动数据暂无公开来源，未作估算。
+            杯赛出场与首发见球员卡片「2026 足协杯」一栏，据三场战报的首发与换人名单逐场统计。
           </p>
         </div>
 
@@ -314,7 +315,8 @@ export function Squad() {
           <p className="section-note">
             点击标签按位置、外援或 U21 筛选。号码、出生日期与身体数据来自中足联 2026 赛季
             注册名单，出场、首发、进球、助攻与出场分钟为中足联联赛统计，惯用脚来自直播吧
-            球队资料，缺项留空；出生日期另经直播吧球员资料核对。
+            球队资料，缺项留空；出生日期另经直播吧球员资料核对。杯赛出场与首发据三场
+            足协杯战报的双方首发及换人名单逐场统计，与联赛数据分列。
           </p>
         </div>
 
@@ -390,6 +392,19 @@ export function Squad() {
                           .map((s, i) => (
                             <span key={i} className="stat-sep"> · {s}</span>
                           ))}
+                      </p>
+                    )}
+                    {p.cup_apps > 0 && (
+                      <p className="player-goals">
+                        <span className="stat stat-season">2026 足协杯</span>
+                        <span className="stat-sep"> · </span>
+                        <span className="stat"><strong>{p.cup_apps}</strong> 场</span>
+                        {p.cup_starts > 0 ? (
+                          <>
+                            <span className="stat-sep"> · </span>
+                            <span className="stat"><strong>{p.cup_starts}</strong> 首发</span>
+                          </>
+                        ) : null}
                       </p>
                     )}
                     {p.note && <p className="player-note">{p.note}</p>}

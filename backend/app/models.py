@@ -126,6 +126,8 @@ class Player(Base):
     appearances: Mapped[int] = mapped_column(default=0)
     starts: Mapped[int] = mapped_column(default=0)
     minutes: Mapped[int] = mapped_column(default=0)
+    cup_apps: Mapped[int] = mapped_column(default=0)
+    cup_starts: Mapped[int] = mapped_column(default=0)
     goals: Mapped[int] = mapped_column(default=0)
     assists: Mapped[int] = mapped_column(default=0)
     captain: Mapped[bool] = mapped_column(default=False)

@@ -83,6 +83,8 @@ export type Player = {
   appearances: number;
   starts: number;
   minutes: number;
+  cup_apps: number;
+  cup_starts: number;
   goals: number;
   assists: number;
   captain: boolean;
