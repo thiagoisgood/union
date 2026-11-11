@@ -1,0 +1,24 @@
+# 依赖与构建产物
+frontend/node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 本地配置与密钥
+.claude/settings.local.json
+.env
+.env.*
+*.pem
+*.key
+
+# 数据库本地文件
+*.db
+*.sqlite3
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,55 @@
+services:
+  union-db:
+    image: postgres:15-alpine
+    container_name: union-db
+    restart: unless-stopped
+    mem_limit: 512m
+    environment:
+      POSTGRES_DB: union
+      POSTGRES_USER: union
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-union_local_dev}
+    volumes:
+      - union_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U union -d union"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - union-net
+
+  union-api:
+    build: ./backend
+    container_name: union-api
+    restart: unless-stopped
+    mem_limit: 384m
+    environment:
+      DATABASE_URL: postgresql+psycopg2://union:${POSTGRES_PASSWORD:-union_local_dev}@union-db:5432/union
+      TZ: Asia/Shanghai
+    depends_on:
+      union-db:
+        condition: service_healthy
+    networks:
+      - union-net
+
+  union-web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.local
+    container_name: union-web
+    restart: unless-stopped
+    mem_limit: 96m
+    depends_on:
+      - union-api
+    networks:
+      - union-net
+      - web-gateway
+
+volumes:
+  union_pgdata:
+
+networks:
+  union-net:
+    name: union-net
+  web-gateway:
+    external: true
