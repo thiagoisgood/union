@@ -582,7 +582,8 @@ export function Squad() {
             <h2>2023 中冠赛季名单</h2>
             <p className="section-note">
               建队首个赛季的 30 人名单，含号码、位置、身高、体重、出生日期与籍贯；
-              头像取自当季官方名单板，按同一版式裁切。
+              头像取自当季官方名单板，按同一版式裁切。进球为 2023 中冠总决赛阶段 9 场逐场统计，
+              当季无公开出场与首发数据，未作估算。
             </p>
           </div>
 
@@ -605,6 +606,7 @@ export function Squad() {
                     <i className="stat-avatar-fallback">{positionMark[p.position] ?? "·"}</i>
                   )}
                   <strong>{p.name}</strong>
+                  {p.goals > 0 && <span className="chip">{p.goals} 球</span>}
                 </span>
                 <span>
                   <span className="chip">{p.position}</span>
