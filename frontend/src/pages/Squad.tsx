@@ -235,7 +235,8 @@ export function Squad() {
             出场、进球与助攻均取中足联 2026 中甲联赛官方统计（30 轮，不含足协杯），
             与战绩页逐场比分相互印证；足协杯进球单列在球员备注与战绩页。
             球员进球合计 56 球，与赛季 57 球的差额为对手乌龙球；出场时间与跑动数据暂无公开来源，未作估算。
-            杯赛出场与首发见球员卡片「2026 足协杯」一栏，据三场战报的首发与换人名单逐场统计。
+            杯赛出场与首发见球员卡片「2026 足协杯」一栏，据三场战报的首发与换人名单逐场统计，
+            1/8 决赛另按直播吧首发换人接口补入战报漏记的 3 次换人，三场合计 49 人次出场、33 人次首发。
           </p>
         </div>
 
@@ -316,7 +317,7 @@ export function Squad() {
             点击标签按位置、外援或 U21 筛选。号码、出生日期与身体数据来自中足联 2026 赛季
             注册名单，出场、首发、进球、助攻与出场分钟为中足联联赛统计，惯用脚来自直播吧
             球队资料，缺项留空；出生日期另经直播吧球员资料核对。杯赛出场与首发据三场
-            足协杯战报的双方首发及换人名单逐场统计，与联赛数据分列。
+            足协杯战报的双方首发及换人名单逐场统计，并与直播吧首发换人接口逐场互证，与联赛数据分列。
           </p>
         </div>
 
@@ -398,7 +399,7 @@ export function Squad() {
                       <p className="player-goals">
                         <span className="stat stat-season">2026 足协杯</span>
                         <span className="stat-sep"> · </span>
-                        <span className="stat"><strong>{p.cup_apps}</strong> 场</span>
+                        <span className="stat"><strong>{p.cup_partial ? "≥" : ""}{p.cup_apps}</strong> 场</span>
                         {p.cup_starts > 0 ? (
                           <>
                             <span className="stat-sep"> · </span>
@@ -505,6 +506,11 @@ export function Squad() {
                   )}
                   {p.goals > 0 && <span className="chip">{p.goals} 球</span>}
                   {p.assists > 0 && <span className="chip chip-assist">{p.assists} 助攻</span>}
+                  {p.cup_apps > 0 && (
+                    <span className="chip">
+                      杯赛 {p.cup_partial ? "≥" : ""}{p.cup_apps} 场 · {p.cup_starts} 首发
+                    </span>
+                  )}
                 </span>
                 <span>
                   <span className="chip">{p.position}</span>
@@ -520,7 +526,11 @@ export function Squad() {
             出场、首发、出场分钟、进球、助攻均为 2025 中甲联赛官方统计，34 人合计 466 场、
             330 首发、29678 分钟、48 球、31 助攻，
             与球队赛季 48 个联赛进球完全对应；足协杯与西部杯进球不计入，此前按各项赛事汇总的
-            数字保留在备注中。开季 29 人公示名单中的号码与位置已按注册资料复核，夏窗加盟的
+            数字保留在备注中。「杯赛」标签为 2025 足协杯三场（第 2 轮 4:0 深圳二零二八、第 3 轮
+            2:1 武汉三镇、1/8 决赛 1:2 云南玉昆）的出场与首发，据直播吧首发换人接口逐场统计：
+            首发 33 人次全部可查证，第 3 轮 5 次、1/8 决赛 4 次换人均与首发下场分钟一一对应，
+            出场共 41 人次；第 2 轮换人未公开，该场出场无法查证，故出场数按下限登记并以「≥」显示。
+            开季 29 人公示名单中的号码与位置已按注册资料复核，夏窗加盟的
             塞尔马尼、魏志伟、马希伟、李小一与钟玮宏一并列入。
           </p>
         </section>
@@ -561,7 +571,7 @@ export function Squad() {
                   {p.captain && <span className="chip chip-captain">队长</span>}
                   {p.cup_apps > 0 && (
                     <span className="chip">
-                      杯赛 {p.cup_apps} 场 · {p.cup_starts} 首发
+                      杯赛 {p.cup_partial ? "≥" : ""}{p.cup_apps} 场 · {p.cup_starts} 首发
                     </span>
                   )}
                 </span>
@@ -592,7 +602,8 @@ export function Squad() {
             籍贯按球员终身属性登记，2024 年新援中无公开来源者留空，曾效力 2023 赛季者沿用当季名单。
             当季无公开肖像的 16 名球员以位置标记代替头像。「杯赛」标签为 2024 足协杯三场
             （第 2、3、4 轮）出场与首发，据三篇战报的首发及换人名单统计，共 47 人次出场、33 人次首发；
-            2025 足协杯仅有两场首发名单可读、且无换人信息，未计入本表。
+            直播吧首发换人接口与战报交叉核对，第 3 轮 4 次换人完全一致，第 2 轮未记换人、第 4 轮少记
+            李锐一次，故以战报为完整口径。2025 足协杯数据见上方 2025 赛季名单。
           </p>
         </section>
       )}
