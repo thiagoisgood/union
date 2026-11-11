@@ -6,7 +6,7 @@ import { baseTextStyle, chartColors, Chart } from "../components/Chart";
 import { Reveal } from "../components/Reveal";
 import { useApi } from "../hooks";
 
-const LEAGUE_TOTAL = 409335;
+const LEAGUE_TOTAL = 411335;
 const CUP_ATTENDANCE = 32531;
 const COMBINED = LEAGUE_TOTAL + CUP_ATTENDANCE;
 const LEAGUE_GAMES = 15;
@@ -15,10 +15,14 @@ const LEAGUE_AVERAGE_TEXT = LEAGUE_AVERAGE.toLocaleString("en-US");
 const SINGLE_RECORD = 43937;
 const FINAL_GAME = 38798;
 const WEINAN_2024_HIGH = 28000;
-const LEAGUE_SHARE = "18.69%";
+const SEASON_2025_TOTAL = 219325;
+const SEASON_2025_AVERAGE = 14622;
+const SEASON_2025_HIGH = 22323;
+const LEAGUE_SHARE = "18.75%";
 
 const landmarks = [
   { name: "2024 渭南单场最高", value: WEINAN_2024_HIGH, note: "2024 中乙赛季" },
+  { name: "2025 联赛单场最高", value: SEASON_2025_HIGH, note: "8 月 2 日 vs 重庆铜梁龙" },
   { name: "2026 足协杯", value: CUP_ATTENDANCE, note: "6 月 19 日 vs 浙江队" },
   { name: "2026 联赛收官战", value: FINAL_GAME, note: "11 月 7 日 vs 广西恒宸" },
   { name: "2026 联赛单场纪录", value: SINGLE_RECORD, note: "4 月 5 日 vs 石家庄功夫" },
@@ -41,7 +45,7 @@ const timeline = [
     year: "2026",
     venue: "西安国际足球中心",
     tag: "回归西安",
-    text: "主场正式回归西安，15 个联赛主场全部设于 6 万座专业足球场。联赛主场 409335 人、场均约 27289 人，单场最高 43937 人，包揽当季中甲上座前六。",
+    text: "主场正式回归西安，15 个联赛主场全部设于 6 万座专业足球场。联赛主场 411335 人、场均约 27422 人，单场最高 43937 人，包揽当季中甲上座前六。",
   },
 ];
 
@@ -445,7 +449,7 @@ export function Stadium() {
                 </div>
                 <div>
                   <strong>{LEAGUE_SHARE}</strong>
-                  <span>陕西联合 2026 联赛主场上座占整个中甲约 219 万人次的 18.69%</span>
+                  <span>陕西联合 2026 联赛主场上座占整个中甲约 219 万人次的 18.75%</span>
                 </div>
               </div>
               <p className="venue-fact-note">
@@ -462,8 +466,8 @@ export function Stadium() {
           <p className="kicker">ATTENDANCE</p>
           <h2>看台上的数字</h2>
           <p className="section-note">
-            2026 赛季，陕西联合联赛主场 15 场共 409335 人，场均约 {LEAGUE_AVERAGE_TEXT} 人；
-            加上足协杯主场，合计 441866 人。
+            2026 赛季，陕西联合联赛主场 15 场共 {LEAGUE_TOTAL.toLocaleString("en-US")} 人，场均约 {LEAGUE_AVERAGE_TEXT} 人；
+            加上足协杯主场，合计 {COMBINED.toLocaleString("en-US")} 人。
           </p>
         </div>
 
@@ -496,18 +500,19 @@ export function Stadium() {
                 label={`单场上座里程碑：2026 赛季单场最高 ${SINGLE_RECORD.toLocaleString("en-US")} 人，收官战 ${FINAL_GAME.toLocaleString("en-US")} 人，2024 渭南单场最高约 ${WEINAN_2024_HIGH.toLocaleString("en-US")} 人`}
               />
               <p className="chart-footnote">
-                单场上座里程碑；2025 赛季逐场数据尚待核实，因此未纳入比较。
+                单场上座里程碑：2025 赛季 15 个联赛主场合计 {SEASON_2025_TOTAL.toLocaleString("en-US")} 人、场均{" "}
+                {SEASON_2025_AVERAGE.toLocaleString("en-US")} 人，单场最高对阵重庆铜梁龙 22323 人。
               </p>
             </div>
           </Reveal>
         </div>
 
         <div className="attendance-strip">
-          <div><strong>409,335</strong><span>2026 联赛主场人次</span></div>
+          <div><strong>{LEAGUE_TOTAL.toLocaleString("en-US")}</strong><span>2026 联赛主场人次</span></div>
           <div><strong>{LEAGUE_AVERAGE_TEXT}</strong><span>2026 联赛场均</span></div>
           <div><strong>{SINGLE_RECORD.toLocaleString()}</strong><span>2026 单场最高</span></div>
           <div><strong>32,531</strong><span>足协杯主场</span></div>
-          <div><strong>30 万+</strong><span>2024 渭南主场人次</span></div>
+          <div><strong>{SEASON_2025_TOTAL.toLocaleString("en-US")}</strong><span>2025 联赛主场人次</span></div>
         </div>
       </section>
 
@@ -564,7 +569,8 @@ export function Stadium() {
         </div>
 
         <p className="data-caveat">
-          2025 赛季逐场主场上座数据仍在核实中，页面不作推测补写。
+          2025、2026 两个赛季 30 个联赛主场的逐场上座均已核实，逐场相加与德转管理员朱艺公布的赛季汇总一致；
+          2025 赛季合计 219325 人、场均 14622 人，2026 赛季合计 411335 人、场均 27422 人。
           详细来源见 <Link to="/sources">数据来源</Link>。
         </p>
       </section>
