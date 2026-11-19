@@ -194,6 +194,20 @@ class FanEvent(Base):
     source_key: Mapped[str] = mapped_column(default="")
 
 
+class News(Base):
+    __tablename__ = "news"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    date: Mapped[str] = mapped_column(index=True)
+    title: Mapped[str]
+    summary: Mapped[str]
+    category: Mapped[str]
+    scope: Mapped[str] = mapped_column(default="recent")
+    is_controversy: Mapped[bool] = mapped_column(default=False)
+    source_key: Mapped[str] = mapped_column(default="")
+    source_url: Mapped[str] = mapped_column(default="")
+
+
 class DevProgress(Base):
     __tablename__ = "dev_progress"
 

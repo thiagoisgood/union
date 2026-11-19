@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 const links = [
   { to: "/", label: "首页" },
   { to: "/history", label: "历史沿革" },
+  { to: "/news", label: "新闻" },
   { to: "/squad", label: "球员" },
   { to: "/staff", label: "教练组" },
   { to: "/results", label: "战绩" },

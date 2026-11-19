@@ -16,6 +16,7 @@ from .models import (
     FanEvent,
     Match,
     Milestone,
+    News,
     Player,
     Season,
     Source,
@@ -134,6 +135,12 @@ def venues(db: Session = Depends(get_db)):
 def fan_events(db: Session = Depends(get_db)):
     rows = db.scalars(select(FanEvent).order_by(FanEvent.date)).all()
     return [to_dict(f) for f in rows]
+
+
+@app.get("/api/news")
+def news(db: Session = Depends(get_db)):
+    rows = db.scalars(select(News).order_by(News.date.desc(), News.id.desc())).all()
+    return [to_dict(n) for n in rows]
 
 
 @app.get("/api/sources")

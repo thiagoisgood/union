@@ -12,6 +12,7 @@ const Staff = lazy(() => import("./pages/Staff").then((m) => ({ default: m.Staff
 const Results = lazy(() => import("./pages/Results").then((m) => ({ default: m.Results })));
 const Stadium = lazy(() => import("./pages/Stadium").then((m) => ({ default: m.Stadium })));
 const Fans = lazy(() => import("./pages/Fans").then((m) => ({ default: m.Fans })));
+const News = lazy(() => import("./pages/News").then((m) => ({ default: m.News })));
 const Progress = lazy(() => import("./pages/Progress").then((m) => ({ default: m.Progress })));
 const Sources = lazy(() => import("./pages/Sources").then((m) => ({ default: m.Sources })));
 const ComingSoon = lazy(() =>
@@ -54,6 +55,7 @@ export default function App() {
             <Route path="/results" element={<Results />} />
             <Route path="/stadium" element={<Stadium />} />
             <Route path="/fans" element={<Fans />} />
+            <Route path="/news" element={<News />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/sources" element={<Sources />} />
             <Route

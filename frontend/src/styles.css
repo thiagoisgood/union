@@ -4525,3 +4525,42 @@ p {
     gap: 8px;
   }
 }
+
+/* ---------- news ---------- */
+
+.chip-alert {
+  color: #ff8a8a;
+  border-color: rgba(225, 29, 46, 0.4);
+}
+
+.timeline-dot.is-alert {
+  background: var(--red);
+  box-shadow: 0 0 0 5px rgba(225, 29, 46, 0.12);
+}
+
+.timeline-alert {
+  border-left-color: rgba(225, 29, 46, 0.28);
+}
+
+.news-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.news-month {
+  margin-bottom: 40px;
+}
+
+.news-month-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin: 0 0 18px;
+}
+
+.news-month .timeline {
+  margin-bottom: 0;
+}

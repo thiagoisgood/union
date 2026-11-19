@@ -139,6 +139,17 @@ export type FanEvent = {
   source_key: string;
 };
 
+export type NewsItem = {
+  date: string;
+  title: string;
+  summary: string;
+  category: string;
+  scope: "history" | "recent";
+  is_controversy: boolean;
+  source_key: string;
+  source_url: string;
+};
+
 export type Source = {
   key: string;
   title: string;
@@ -213,6 +224,7 @@ export const api = {
   matches: (season?: number) => get<Match[]>(`/matches${season ? `?season=${season}` : ""}`),
   venues: () => get<Venue[]>("/venues"),
   fanEvents: () => get<FanEvent[]>("/fan-events"),
+  news: () => get<NewsItem[]>("/news"),
   sources: () => get<Source[]>("/sources"),
   progress: () => get<ProgressItem[]>("/progress"),
   audit: () => get<Audit>("/audit"),
