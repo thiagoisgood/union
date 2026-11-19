@@ -486,7 +486,8 @@ export function Squad() {
             <h2>2025 赛季注册名单</h2>
             <p className="section-note">
               34 人注册名单据中足联 2025 赛季球员注册名单，号码、位置、国籍、出生日期与身高体重
-              以注册资料为准；出场、首发、出场分钟、进球、助攻为 2025 中甲联赛官方统计。未公开项留空，不作推测。
+              以注册资料为准；籍贯据公开报道逐人核实，无可靠来源者留空；出场、首发、出场分钟、进球、助攻为
+              2025 中甲联赛官方统计。未公开项留空，不作推测。
             </p>
           </div>
 
@@ -497,6 +498,7 @@ export function Squad() {
               <span>位置</span>
               <span>国籍</span>
               <span>出生日期</span>
+              <span>籍贯</span>
               <span>备注</span>
             </div>
             {olderPlayers.map((p) => (
@@ -529,6 +531,7 @@ export function Squad() {
                 </span>
                 <span>{p.nationality}</span>
                 <span>{p.birth_date || "—"}</span>
+                <span>{p.hometown || "—"}</span>
                 <span className="roster-note">{p.note || "—"}</span>
               </div>
             ))}

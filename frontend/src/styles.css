@@ -1555,7 +1555,7 @@ p {
 
 .roster-head-2025,
 .roster-row-2025 {
-  grid-template-columns: 62px minmax(0, 1.4fr) 0.8fr 0.7fr 1fr 1.7fr;
+  grid-template-columns: 62px minmax(0, 1.4fr) 0.8fr 0.7fr 1fr 0.8fr 1.7fr;
 }
 
 .roster-head-2024,
@@ -4407,7 +4407,7 @@ p {
 
   .roster-head-2025,
   .roster-row-2025 {
-    grid-template-columns: 52px minmax(0, 1.3fr) 0.8fr 0.7fr 1fr 1.6fr;
+    grid-template-columns: 52px minmax(0, 1.3fr) 0.8fr 0.7fr 1fr 0.8fr 1.6fr;
   }
 
   .roster-head-2024,
