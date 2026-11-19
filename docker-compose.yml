@@ -3,7 +3,8 @@ services:
     image: postgres:15-alpine
     container_name: union-db
     restart: unless-stopped
-    mem_limit: 512m
+    mem_limit: 384m
+    memswap_limit: 384m
     environment:
       POSTGRES_DB: union
       POSTGRES_USER: union
@@ -22,7 +23,8 @@ services:
     build: ./backend
     container_name: union-api
     restart: unless-stopped
-    mem_limit: 384m
+    mem_limit: 256m
+    memswap_limit: 256m
     environment:
       DATABASE_URL: postgresql+psycopg2://union:${POSTGRES_PASSWORD:-union_local_dev}@union-db:5432/union
       TZ: Asia/Shanghai
@@ -38,7 +40,8 @@ services:
       dockerfile: Dockerfile.local
     container_name: union-web
     restart: unless-stopped
-    mem_limit: 96m
+    mem_limit: 64m
+    memswap_limit: 64m
     depends_on:
       - union-api
     networks:
