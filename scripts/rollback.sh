@@ -116,6 +116,12 @@ if [[ -n "$(git status --porcelain -- backend PROGRESS.md data scripts)" ]]; the
 fi
 
 log "回退：${CURRENT:0:8} → $TAG（${TARGET_COMMIT:0:8}）"
+
+if ! git cat-file -e "$TAG:scripts/rollback.sh" 2>/dev/null; then
+  cp "$0" "$ROOT/scripts/rollback.sh.keep"
+  log "目标版本不含回退脚本，已保留副本 scripts/rollback.sh.keep"
+fi
+
 git reset --hard "$TARGET_COMMIT"
 
 if [[ "$RESTORE_DB" == "1" ]]; then
