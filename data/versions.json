@@ -1,0 +1,10 @@
+{
+  "versions": [
+    {
+      "tag": "site-20261123-1559",
+      "commit": "a9155a65a8d08aaed914985901c2534e33cd3f32",
+      "db_backup": "data/backups/db-20261123-155911.sql.gz",
+      "created_at": "2026-11-23T15:59:29+08:00"
+    }
+  ]
+}
