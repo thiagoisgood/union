@@ -489,7 +489,10 @@ def write_versions(tag: str, commit: str, backup):
 
 
 def prune_tags(keep: str):
-    tags = run(["git", "tag", "--list", "site-*", "--sort=-creatordate"]).stdout.split()
+    out = run(
+        ["git", "for-each-ref", "--sort=-committerdate", "--format=%(refname:short)", "refs/tags/site-*"]
+    ).stdout
+    tags = out.split()
     pruned = []
     for old in tags[KEEP_VERSIONS:]:
         if old == keep:
