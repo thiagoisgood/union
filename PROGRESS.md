@@ -2,7 +2,7 @@
 
 - 站点：https://union.mountainscene.top
 - 架构：React + Vite + TypeScript（前端） / FastAPI + SQLAlchemy（后端） / PostgreSQL 15
-- 数据截止：2026-11-19（新闻版块），俱乐部信息截至 2026-11-08，开发记录持续更新
+- 数据截止：2026-11-22（新闻自动更新），俱乐部信息截至 2026-11-08，开发记录持续更新
 - 迭代方式：前 10 次 loop 完成主体建设，此后按资料类别持续补充，每轮更新此文件与站点 `/progress` 页面
 
 ## 十轮迭代总览
