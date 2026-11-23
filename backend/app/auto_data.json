@@ -1,7 +1,54 @@
 {
-  "version": 0,
-  "updated_at": "",
-  "sources": [],
-  "news": [],
-  "updates": []
+  "version": 1,
+  "updated_at": "2026-11-23T15:59:13+08:00",
+  "sources": [
+    {
+      "key": "zb-2026-11-22-6b02c207cb5c",
+      "title": "下赛季中甲16队确定：三镇、海牛、大连可为、泰山B队、贵阳在列",
+      "publisher": "直播吧",
+      "url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02c207cb5cbnative.htm",
+      "published_at": "2026-11-22",
+      "note": "定时任务自动抓取（20261123-155911）"
+    },
+    {
+      "key": "zb-2026-11-22-6b02b86cf218",
+      "title": "陕西联合发贺信祝贺贵州贵阳竞技足球俱乐部成功冲甲",
+      "publisher": "直播吧",
+      "url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02b86cf218cnative.htm",
+      "published_at": "2026-11-22",
+      "note": "定时任务自动抓取（20261123-155911）"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-11-22",
+      "title": "下赛季中甲16队确定：三镇、海牛、大连可为、泰山B队、贵阳在列",
+      "summary": "随着贵州贵阳竞技在附加赛击败定南赣联升入中甲，下赛季中甲16支球队全部确定，中超球队武汉三镇、青岛海牛降级，中乙球队大连可为、泰山B队、贵州贵阳竞技升级。",
+      "category": "club",
+      "scope": "recent",
+      "is_controversy": false,
+      "source_key": "zb-2026-11-22-6b02c207cb5c",
+      "source_url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02c207cb5cbnative.htm"
+    },
+    {
+      "date": "2026-11-22",
+      "title": "陕西联合发贺信祝贺贵州贵阳竞技足球俱乐部成功冲甲",
+      "summary": "直播吧 2026-11-22 报道，详见原文。",
+      "category": "club",
+      "scope": "recent",
+      "is_controversy": false,
+      "source_key": "zb-2026-11-22-6b02b86cf218",
+      "source_url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02b86cf218cnative.htm"
+    }
+  ],
+  "updates": [
+    {
+      "loop_index": 99,
+      "phase": "阶段九十九",
+      "title": "定时更新：新增 2 条新闻",
+      "status": "completed",
+      "completed_at": "2026-11-23",
+      "detail": "自动抓取 2026-11-13 至 2026-11-23 的直播吧足球资讯，筛选陕西联合相关 2 条，通过校验 2 条并入库；校验含日期格式、原文链接可达与标题相似度、同日期去重、与站内比赛比分交叉比对。数据库备份：db-20261123-155911.sql.gz。"
+    }
+  ]
 }

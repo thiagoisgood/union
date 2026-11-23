@@ -1990,3 +1990,11 @@
 - 证书：Let's Encrypt（`certbot certonly --webroot`），webroot 为 `/var/www/babyup/deploy/gateway-nginx/acme-challenge`，到期 2027-02-07，已配置自动续期
 - 表结构：`Base.metadata.create_all` 不会给已有表加列。模型新增字段（如 `Coach.photo`）时，需先手工 `ALTER TABLE ... ADD COLUMN` 或重建数据卷，再启动 `union-api`，否则启动阶段灌数据会因缺列失败并使站点 502
 - 验证：`https://union.mountainscene.top/api/health` 返回 ok；首页、历史、进度、来源页与全部 API 均 200
+
+## 定时更新 · 2026-11-23 15:59
+
+本轮由 `scripts/update_news.py` 自动执行（20261123-155911）。自动抓取 2026-11-13 至 2026-11-23 的直播吧足球资讯，筛选陕西联合相关 2 条，通过校验 2 条并入库；校验含日期格式、原文链接可达与标题相似度、同日期去重、与站内比赛比分交叉比对。数据库备份：db-20261123-155911.sql.gz。
+
+- 2026-11-22 · 下赛季中甲16队确定：三镇、海牛、大连可为、泰山B队、贵阳在列（https://news.zhibo8.com/zuqiu/2026-11-22/6b02c207cb5cbnative.htm）
+- 2026-11-22 · 陕西联合发贺信祝贺贵州贵阳竞技足球俱乐部成功冲甲（https://news.zhibo8.com/zuqiu/2026-11-22/6b02b86cf218cnative.htm）
+
