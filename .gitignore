@@ -17,6 +17,11 @@ __pycache__/
 *.db
 *.sqlite3
 
+# 定时更新运行产物（报告与数据库快照不入库）
+data/update_runs/
+data/backups/
+data/*.log
+
 # 系统与编辑器
 .DS_Store
 Thumbs.db

@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
@@ -22,10 +25,20 @@ from .news_data import NEWS, NEWS_SOURCES
 UNKNOWN = -1
 SEED_VERSION = "132"
 
+# 定时任务写入的增量数据（新闻、来源、更新日志）。文件随镜像打进容器，
+# 内容变更时提升 version，seed 据此重新灌库。
+_AUTO_PATH = Path(__file__).with_name("auto_data.json")
+with _AUTO_PATH.open(encoding="utf-8") as _f:
+    AUTO = json.load(_f)
+for _key in ("sources", "news", "updates"):
+    AUTO.setdefault(_key, [])
+
+SEED_KEY = f"{SEED_VERSION}:auto{AUTO.get('version', 0)}"
+
 
 def seed(db: Session) -> None:
     meta = db.get(Meta, "seed_version")
-    if meta and meta.value == SEED_VERSION:
+    if meta and meta.value == SEED_KEY:
         return
 
     for model in (Source, Club, Milestone, Season, Coach, ClubRecord, Player, Transfer, Match, Venue, FanEvent, News, DevProgress):
@@ -2393,6 +2406,13 @@ def seed(db: Session) -> None:
         for n in NEWS
     )
 
+    if AUTO["sources"]:
+        db.add_all(Source(**s) for s in AUTO["sources"])
+    if AUTO["news"]:
+        db.add_all(News(**n) for n in AUTO["news"])
+    if AUTO["updates"]:
+        db.add_all(DevProgress(**u) for u in AUTO["updates"])
+
     db.execute(delete(Meta))
-    db.add(Meta(key="seed_version", value=SEED_VERSION))
+    db.add(Meta(key="seed_version", value=SEED_KEY))
     db.commit()
