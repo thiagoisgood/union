@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated_at": "2026-11-23T15:59:13+08:00",
+  "version": 2,
+  "updated_at": "2026-11-25T08:17:03+08:00",
   "sources": [
     {
       "key": "zb-2026-11-22-6b02c207cb5c",
@@ -17,6 +17,14 @@
       "url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02b86cf218cnative.htm",
       "published_at": "2026-11-22",
       "note": "定时任务自动抓取（20261123-155911）"
+    },
+    {
+      "key": "zb-2026-11-24-6b051fc1d1f9",
+      "title": "陕西联合官方：网络上出现大量涉及球员转会、薪酬待遇等不实内容",
+      "publisher": "直播吧",
+      "url": "https://news.zhibo8.com/zuqiu/2026-11-24/6b051fc1d1f96native.htm",
+      "published_at": "2026-11-24",
+      "note": "定时任务自动抓取（20261125-081702）"
     }
   ],
   "news": [
@@ -39,6 +47,16 @@
       "is_controversy": false,
       "source_key": "zb-2026-11-22-6b02b86cf218",
       "source_url": "https://news.zhibo8.com/zuqiu/2026-11-22/6b02b86cf218cnative.htm"
+    },
+    {
+      "date": "2026-11-24",
+      "title": "陕西联合官方：网络上出现大量涉及球员转会、薪酬待遇等不实内容",
+      "summary": "近期正值联赛休赛期，网络上出现大量涉及我俱乐部球员转会、人员进出、薪酬待遇等未经证实的信息，部分网络直播及自媒体账号以\"内部消息\"\"知情人士\"等名义传播不实内容，造成误解，也对俱乐部正常运营及球员、教练团队造成困扰。现就有关事项公告如下：",
+      "category": "transfer",
+      "scope": "recent",
+      "is_controversy": false,
+      "source_key": "zb-2026-11-24-6b051fc1d1f9",
+      "source_url": "https://news.zhibo8.com/zuqiu/2026-11-24/6b051fc1d1f96native.htm"
     }
   ],
   "updates": [
@@ -49,6 +67,14 @@
       "status": "completed",
       "completed_at": "2026-11-23",
       "detail": "自动抓取 2026-11-13 至 2026-11-23 的直播吧足球资讯，筛选陕西联合相关 2 条，通过校验 2 条并入库；校验含日期格式、原文链接可达与标题相似度、同日期去重、与站内比赛比分交叉比对。数据库备份：db-20261123-155911.sql.gz。"
+    },
+    {
+      "loop_index": 100,
+      "phase": "阶段100",
+      "title": "定时更新：新增 1 条新闻",
+      "status": "completed",
+      "completed_at": "2026-11-25",
+      "detail": "自动抓取 2026-11-23 至 2026-11-25 的直播吧足球资讯，筛选陕西联合相关 1 条，通过校验 1 条并入库；校验含日期格式、原文链接可达与标题相似度、同日期去重、与站内比赛比分交叉比对。数据库备份：db-20261125-081702.sql.gz。"
     }
   ]
 }
